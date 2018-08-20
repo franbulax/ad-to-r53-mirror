@@ -10,7 +10,7 @@ package:
   exclude:
     - .git/**
     - .gitignore
-    - *~
+    - "*~"
 provider:
   name: aws
   runtime: python3.6
