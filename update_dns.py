@@ -66,7 +66,7 @@ def get_master_zone(ip,name):
         raise
 
 
-#
+# Compute the difference between zones
 def diff_zones(zoneId,domainName,serverIp):
     differences = []
     masterZone = get_master_zone(serverIp,domainName)
@@ -142,7 +142,7 @@ def diff_zones(zoneId,domainName,serverIp):
                 change = {'name':name,
                           'type':dns.rdatatype.to_text(r53Rec.rdtype),
                           'changeRec':changeRec,
-                          'ttl':r53Rec.ttl,
+                          'ttl':mRec.ttl,
                           'action':action}
                 if change not in differences:
                     differences.append(change)
