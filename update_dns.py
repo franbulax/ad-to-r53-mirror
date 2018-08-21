@@ -134,10 +134,12 @@ def diff_zones(zoneId,domainName,serverIp):
                 if mRec:
                     action = 'UPSERT'
                     for val in mRec:
+                        log.debug("R53 Upsert from mRec of {}".format(val))
                         changeRec.append(val)
                 else:
                     action = 'DELETE'
                     for val in r53Rec:
+                        log.debug("Delete of {}".format(val))
                         changeRec.append(val)
                 change = {'name':name,
                           'type':dns.rdatatype.to_text(r53Rec.rdtype),
@@ -157,11 +159,13 @@ def diff_zones(zoneId,domainName,serverIp):
                 changeRec = []
                 if r53Rec:
                     action = 'UPSERT'
-                    for val in r53Rec:
+                    for val in mRec:
+                        log.debug("Master Upsert of {}".format(val))
                         changeRec.append(val)
                 else:
                     action = 'CREATE'
                     for val in mRec:
+                        log.debug("Create of {}".format(val))
                         changeRec.append(val)
                 change = {'name':name,
                           'type':dns.rdatatype.to_text(mRec.rdtype),
@@ -172,6 +176,7 @@ def diff_zones(zoneId,domainName,serverIp):
                     differences.append(change)
             if mRec.rdtype == dns.rdatatype.SOA or not r53Rec:
                 continue
+
             elif mRec.ttl != r53Rec.ttl:
                 changeRec = []
                 for val in mRec:
@@ -218,8 +223,10 @@ def update(event,context):
                 hostName += '.'
         for val in change['changeRec']:
             if change['type'] not in ['CNAME','SRV','MX','NS'] or val.to_text()[-1] == '.':
+                log.debug("Changing {}".format(val.to_text()))
                 resourceRecords.append({'Value': val.to_text()})
             else:
+                log.debug("Changing {}".format(val.to_text() + '.' + domainName))
                 resourceRecords.append({'Value':val.to_text() + '.' + domainName})
 
         returnVal = {
