@@ -141,10 +141,14 @@ def diff_zones(zoneId,domainName,serverIp):
                     for val in r53Rec:
                         log.debug("Delete of {}".format(val))
                         changeRec.append(val)
+                try:
+                    ttl = mRec.ttl
+                except AttributeError:
+                    ttl = r53Rec.ttl
                 change = {'name':name,
                           'type':dns.rdatatype.to_text(r53Rec.rdtype),
                           'changeRec':changeRec,
-                          'ttl':mRec.ttl,
+                          'ttl':ttl,
                           'action':action}
                 if change not in differences:
                     differences.append(change)
