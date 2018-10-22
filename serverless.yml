@@ -52,4 +52,127 @@ functions:
     events:
       - schedule: cron(0/11 * * * ? *)
 
+  update_0_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 0.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z2M3ZZYGXH13Y6
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_1_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 1.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z1X63WJWRY61I4
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_2_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 2.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z9FSERS9TXV4Z
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_3_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 3.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: ZFPRDV2KXEGP6
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_4_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 4.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z1HI3M3TSWU2WS
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_5_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 5.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z2Z5XNU7G3EIDA
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_6_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 6.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: ZSCEYX2LC1654
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_128_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 128.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z1XRR3GXXRYAA7
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_17_172:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 17.172.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z1RM06SICCDOQW
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_31_172:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 31.172.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z19D853PC6PZ84
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+  update_255_10:
+    handler: update_dns.update
+    environment:
+      LOGLEVEL: info
+      DOMAIN: 255.10.in-addr.arpa
+      SERVERIP: 10.1.64.64
+      ZONEID: Z1VBTYJCOIHKJ
+    events:
+      - schedule: cron(0/11 * * * ? *)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
