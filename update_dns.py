@@ -9,7 +9,7 @@ import json
 import boto3
 
 #
-# Periodically update a Rout53 zone with changes from a nominated DNS server
+# Periodically update a Route53 zone with changes from a nominated DNS server
 # Note:
 #  The server must allow zone-transfers
 #  This function can get confused if you have domain names with "." in them and have a subdomain that matches the components of a domain name
@@ -195,7 +195,7 @@ def diff_zones(zoneId,domainName,serverIp):
     # Filter out changes we're not going to make
     # i.e. to the NS records for this domain
 #    filtered = [el for el in differences if not (el['type'] == 'NS' and el['name'].to_text() == '@') ]
-    filtered = [el for el in differences if not (el['type'] in ['NS','SOA'] and el['name'].to_text() == '@')]
+    filtered = [el for el in differences if not (el['type'] in ['NS','SOA','A'] and el['name'].to_text() == '@')]
 
     return filtered
 
