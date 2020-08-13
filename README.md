@@ -1,6 +1,6 @@
 # README #
 
-This is the DNS update lambda in "serverless" (https://serverless.com/)form.
+This is the DNS update lambda in "serverless" (https://serverless.com/) form.
 
 The DNS update lambda runs periodically and updates the nominated Route 53 zone from the nominated DNS server.
 
